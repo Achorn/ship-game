@@ -16,7 +16,7 @@ class Game {
   constructor(ctx, width, height) {
     this.width = width;
     this.height = height;
-    this.plane = new Plane(this);
+    this.ship = new ship(this);
     this.angle = 0;
     this.ctx = ctx;
     this.userInput = new UserInput();
@@ -24,14 +24,14 @@ class Game {
   update(deltaTime) {
     let direction = this.userInput.getDirection();
     this.userInput.pressedKeys;
-    this.plane.update(deltaTime, direction);
+    this.ship.update(deltaTime, direction);
   }
   draw(ctx) {
-    this.plane.draw(ctx);
+    this.ship.draw(ctx);
   }
 }
 
-class Plane {
+class ship {
   constructor(game) {
     this.game = game;
     this.speed = 0.03;
@@ -55,14 +55,14 @@ class Plane {
     if (this.y > this.game.height + 40) this.y = 0 - 40;
     if (this.y < -40) this.y = this.game.height + 40;
 
-    // this.plane.update(deltaTime);
+    // this.ship.update(deltaTime);
     // this.
   }
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, 40, 0, 2 * Math.PI);
     ctx.stroke();
-    // this.plane.draw(this.ctx);
+    // this.ship.draw(this.ctx);
   }
 }
 
